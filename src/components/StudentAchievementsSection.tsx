@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, Award, DollarSign, Star, Zap, Target } from "lucide-react";
+import { Trophy, Award, Star, Zap, Target } from "lucide-react";
+import studentAchievementIcon from "@/assets/student-achievement-icon.png";
 
 const StudentAchievementsSection = () => {
   const achievements = [
@@ -28,7 +29,8 @@ const StudentAchievementsSection = () => {
       details: "Contributing to global open-source projects with Google mentorship"
     },
     {
-      icon: DollarSign,
+      icon: "image",
+      image: studentAchievementIcon,
       color: "text-green-500",
       bgColor: "bg-green-50", 
       borderColor: "border-green-200",
@@ -67,7 +69,15 @@ const StudentAchievementsSection = () => {
               <Card key={index} className={`p-8 bg-card border border-border hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group`}>
                 <div className="text-center mb-6">
                   <div className={`w-20 h-20 bg-gradient-to-r ${achievement.color.replace('text-', 'from-').replace('-500', '-500')} to-${achievement.color.replace('text-', '').replace('-500', '-600')} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="w-10 h-10 text-white" />
+                    {achievement.icon === "image" ? (
+                      <img 
+                        src={achievement.image} 
+                        alt="Achievement icon" 
+                        className="w-12 h-12 object-contain rounded-lg"
+                      />
+                    ) : (
+                      <IconComponent className="w-10 h-10 text-white" />
+                    )}
                   </div>
                   <Badge className={`mb-3 bg-gradient-to-r ${achievement.color.replace('text-', 'from-').replace('-500', '-100')} to-${achievement.color.replace('text-', '').replace('-500', '-200')} text-${achievement.color.replace('text-', '')} border-0`}>
                     {achievement.subtitle}
