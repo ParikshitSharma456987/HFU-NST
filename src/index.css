@@ -1,0 +1,353 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Newton School of Technology Design System */
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 5% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 6%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 10%;
+    --input: 240 6% 10%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+    
+    /* NST Brand Colors */
+    --nst-blue: 217 91% 60%;
+    --nst-purple: 269 91% 65%;
+    --nst-orange: 25 95% 53%;
+    --nst-green: 142 76% 36%;
+    --nst-warm: 31 77% 52%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--nst-blue)), hsl(var(--nst-purple)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--nst-orange)), hsl(var(--nst-warm)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--nst-green)), hsl(var(--nst-blue)));
+    --gradient-card: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 5% 6%));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(var(--nst-blue) / 0.3);
+    --shadow-warm: 0 10px 40px hsl(var(--nst-orange) / 0.2);
+    --shadow-card: 0 4px 20px hsl(240 10% 3.9% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground text-lg;
+  }
+}
+
+@layer components {
+  /* Interactive Card Effects */
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  
+  .card-glow {
+    @apply relative overflow-hidden;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-glow::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: var(--gradient-hero);
+    z-index: -1;
+  }
+  
+  .card-glow:hover::before {
+    @apply opacity-10;
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gradient-warm-text {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Custom Buttons */
+  .btn-hero {
+    background: var(--gradient-hero);
+    @apply text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-warm {
+    background: var(--gradient-warm);
+    @apply text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105;
+    box-shadow: var(--shadow-warm);
+  }
+  
+  /* Gradient CTA Button */
+  .btn-gradient-cta {
+    background: linear-gradient(90deg, #6699FF 0%, #9966FF 100%);
+    @apply text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg;
+    box-shadow: 0 4px 15px rgba(102, 153, 255, 0.3);
+  }
+  
+  .btn-gradient-cta:hover {
+    box-shadow: 0 6px 20px rgba(102, 153, 255, 0.4);
+  }
+  
+  /* Report Card Styles */
+  .report-card {
+    @apply bg-white rounded-lg border border-gray-200 p-6 relative overflow-hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .report-card-grid {
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    @apply absolute inset-0 opacity-30;
+  }
+  
+  .document-graphic {
+    @apply relative transform rotate-3;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    @apply rounded-lg p-4 shadow-lg;
+  }
+  
+  .certification-badge {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    @apply rounded-lg px-4 py-3 text-white flex items-center gap-3;
+  }
+  
+  .btn-official-report {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    @apply text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  }
+  
+  .btn-official-report:hover {
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  }
+  
+  /* Rolling Logo Animation */
+  .rolling-logos {
+    @apply flex items-center gap-8 overflow-hidden;
+    animation: roll 40s linear infinite;
+    width: max-content;
+  }
+  
+  .rolling-logos:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes roll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+  
+  .logo-item {
+    @apply flex-shrink-0 flex items-center justify-center;
+    min-width: 120px;
+    height: 60px;
+  }
+  
+  .logo-text {
+    @apply text-2xl font-bold text-gray-600 hover:text-nst-blue transition-colors duration-300;
+  }
+  
+  /* Horizontal Bar Styles */
+  .horizontal-bar {
+    @apply w-full py-4 bg-gray-900 relative overflow-hidden;
+  }
+  
+  .horizontal-bar .rolling-logos {
+    @apply gap-12;
+  }
+  
+  .horizontal-bar .logo-text {
+    @apply text-gray-400 hover:text-white text-lg font-medium;
+  }
+  
+  /* Testimonial Card Styles */
+  .testimonial-card {
+    @apply bg-white rounded-lg border border-gray-200 p-6 relative overflow-hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .testimonial-quote {
+    @apply absolute text-gray-100 text-6xl font-bold;
+    font-family: Georgia, serif;
+    line-height: 1;
+    z-index: 1;
+  }
+  
+  .testimonial-quote.top {
+    top: 8px;
+    left: 16px;
+  }
+  
+  .testimonial-quote.bottom {
+    bottom: 8px;
+    right: 16px;
+    transform: rotate(180deg);
+  }
+  
+  .testimonial-content {
+    @apply relative z-10;
+  }
+  
+  .company-logo {
+    @apply text-2xl font-bold text-gray-800 mb-4;
+  }
+  
+  .testimonial-text {
+    @apply text-gray-700 leading-relaxed mb-6;
+  }
+  
+  .testimonial-author {
+    @apply flex items-center gap-3;
+  }
+  
+  .author-avatar {
+    @apply w-12 h-12 rounded-full bg-gradient-to-r from-nst-blue to-nst-purple flex items-center justify-center text-white font-bold;
+  }
+  
+  .author-info {
+    @apply flex flex-col;
+  }
+  
+  .author-name {
+    @apply font-semibold text-gray-800;
+  }
+  
+  .author-title {
+    @apply text-sm text-gray-500;
+  }
+  
+  /* Floating Animation */
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Fade in animations */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
