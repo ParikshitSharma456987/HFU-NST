@@ -1,32 +1,31 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Trophy, Award, Star, Zap, Target } from "lucide-react";
-import studentAchievementIcon from "@/assets/student-achievement-icon.png";
+import studentAchievementIcon from "@/assets/achievement-icon.svg";
 
 const StudentAchievementsSection = () => {
   const achievements = [
     {
       icon: Trophy,
       color: "text-blue-500",
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-200",
+      bgColor: "bg-muted",
+      borderColor: "border-border",
       title: "Regional ICPC Rank-Holder",
-      subtitle: "Competitive Programming Milestone",
-      description: "Secured Rank #112 in the ICPC Regional rounds—a testament to strong problem-solving abilities, teamwork, and algorithmic depth under competitive pressure.",
+      description: "Achieved Rank #112 in the ICPC Regional Rounds—demonstrating exceptional problem-solving skills, strong teamwork, and deep algorithmic expertise under high-pressure competitive conditions.",
       highlight: "Rank 112 in ICPC Regionals",
-      details: "Achieved under mentorship through Newton School of Technology’s GoForGold initiative, competing among top collegiate teams in the region."
+      details: "First-Year students beat final year IITians in International Coding Olympiad - ICPC Regionals"
     },
     
     {
       icon: Award,
       color: "text-blue-500", 
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-200",
+      bgColor: "bg-muted",
+      borderColor: "border-border",
       title: "Google Summer of Code",
-      subtitle: "Open Source Contributors",
+      
       description: "Six of our students have been selected for Google Summer of Code (GSoC) - one of the world's most prestigious open-source programmes. They're interning with global brands, building real-world software, and contributing to impactful tech projects.",
       highlight: "6 Selected Students",
-      details: "Contributing to global open-source projects with Google mentorship"
+      details: "Google’s most prestigious Open-Source Program (avg stipend 2.3 lakhs)"
     },
     {
       icon: "image",
@@ -35,15 +34,15 @@ const StudentAchievementsSection = () => {
       bgColor: "bg-green-50", 
       borderColor: "border-green-200",
       title: "ISB Startup Funding",
-      subtitle: "Entrepreneurial Success",
-      description: "Secured ₹10 Lakh funding from Indian School of Business (ISB) for innovative startup ventures. This achievement showcases our students' ability to transform technical skills into viable business solutions.",
+      
+      description: "Our students successfully secured ₹10 Lakh in funding from the Indian School of Business (ISB) for their innovative startup ventures — a powerful testament to their ability to convert technical expertise into scalable, impactful, real-world business solutions.",
       highlight: "₹10 Lakh Funding",
-      details: "Seed funding from prestigious ISB incubation program"
+      details: "Seed funding from prestigious ISB's incubation program"
     }
   ];
 
   return (
-    <section className="py-20 bg-slate-900 relative overflow-hidden">
+    <section className="py-20 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-nst-blue/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-nst-purple/5 rounded-full blur-3xl"></div>
@@ -80,7 +79,7 @@ const StudentAchievementsSection = () => {
                     )}
                   </div>
                   <Badge className={`mb-3 bg-gradient-to-r ${achievement.color.replace('text-', 'from-').replace('-500', '-100')} to-${achievement.color.replace('text-', '').replace('-500', '-200')} text-${achievement.color.replace('text-', '')} border-0`}>
-                    {achievement.subtitle}
+                    
                   </Badge>
                   <h3 className="text-2xl font-bold mb-2 text-foreground">{achievement.title}</h3>
                   <div className={`text-3xl font-bold ${achievement.color} mb-4`}>

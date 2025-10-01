@@ -1,56 +1,67 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { CheckCircle, ArrowRight, Users, Lightbulb, BookOpen, Building } from "lucide-react";
+import { ArrowRight, Users, Lightbulb, Building } from "lucide-react";
+import { useState } from "react";
+
+const partnershipOptions = [
+  {
+    title: "Masterclasses & Guest Lectures",
+    description: "Inspire NST's students with perspectives that go beyond the classroom.",
+    link: "View Past Masterclasses ",
+    linkUrl: "#",
+    icon: Users,
+    color: "from-blue-500 to-cyan-500"
+  },
+  {
+    title: "Hackathons & Workshops",
+    description: "Co-create problem-solving events where students tackle real world industry challenges.",
+    link: "See Blinkit's Hackathon Highlights ",
+    linkUrl: "#",
+    icon: Lightbulb,
+    color: "from-green-500 to-emerald-500"
+  },
+  {
+    title: "Hire From NST",
+    description: "Access NST talent for 2-month internships, 6-month co-ops, or full-time roles — job-ready from day one.",
+    link: "Kickstart Hiring",
+    linkUrl: "#",
+    icon: Users,
+    color: "from-green-500 to-emerald-500"
+  },
+  {
+    title: "Industry Immersion Events",
+    description: "Host students at your workplace for live projects and innovation tours — amplified through our channels.",
+    link: "Watch Bangalore's Immersion Highlights ",
+    linkUrl: "#",
+    icon: Building,
+    color: "from-orange-500 to-red-500"
+  }
+];
+
+const carouselImages = [
+  "src/assets/Screenshot 2025-10-01 at 5.47.19 AM.png",
+  "src/assets/Screenshot 2025-10-01 at 5.47.35 AM.png",
+  "src/assets/Screenshot 2025-10-01 at 5.48.14 AM.png",
+  "src/assets/Screenshot 2025-10-01 at 5.49.11 AM.png",
+  "src/assets/Screenshot 2025-10-01 at 5.49.28 AM.png"
+];
 
 const PartnershipSection = () => {
-  const partnershipOptions = [
-    {
-      title: "Masterclasses & Guest Lectures",
-      description: "Inspire NST students with your expertise and position your company as a thought leader.",
-      link: "View Past Masterclasses ->",
-      linkUrl: "#",
-      icon: Users,
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "Hackathons & Workshops", 
-      description: "Co-create problem-solving events where students tackle real industry challenges.",
-      link: "See Blinkit Hackathon Highlights ->",
-      linkUrl: "#",
-      icon: Lightbulb,
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Custom Training Programs",
-      description: "Design modules on your tech stack and groom future hires who understand your workflows.",
-      link: "Explore Training Program Case Studies ->",
-      linkUrl: "#",
-      icon: BookOpen,
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Industry Immersion Events",
-      description: "Host students at your workplace for live projects and innovation tours — amplified through our channels.",
-      link: "Watch Bangalore Immersion Highlights ->", 
-      linkUrl: "#",
-      icon: Building,
-      color: "from-orange-500 to-red-500"
-    }
-  ];
+  const [current, setCurrent] = useState(0);
 
   return (
-    <section className="py-20 bg-slate-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-nst-blue/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-nst-purple/5 rounded-full blur-3xl"></div>
+    <section className="py-20 bg-background relative overflow-hidden">
+      {/* Glowing Circular Background Behind Carousel */}
+      <div className="absolute top-1/2 right-16 w-[460px] h-[340px] translate-y-[-50%] bg-gradient-radial from-blue-900/40 via-purple-600/30 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+      {/* General background details */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-nst-blue/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-nst-purple/10 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Enhanced Content */}
+          {/* Left Section */}
           <div>
             <div className="mb-8">
-              
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                 Shape the Next <span className="gradient-text">Generation of Engineers</span>
               </h2>
@@ -58,7 +69,6 @@ const PartnershipSection = () => {
                 Join hands with NST to create meaningful impact and discover exceptional talent for your organization.
               </p>
             </div>
-
             <div className="space-y-6">
               {partnershipOptions.map((option, index) => {
                 const IconComponent = option.icon;
@@ -84,26 +94,47 @@ const PartnershipSection = () => {
               })}
             </div>
           </div>
-
-          {/* Enhanced CTA Section */}
-          <div className="relative">
-            <Card className="bg-gradient-to-br from-card to-accent/5 border border-border rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-nst-blue to-nst-purple rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  Ready to Partner with Us?
-                </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Join 800+ companies already working with NST to discover exceptional talent and create meaningful impact.
-                </p>
-                <Button className="bg-gradient-to-r from-nst-blue to-nst-purple text-white font-semibold px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 group">
-                  Start Partnership Journey
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
-            </Card>
+          {/* Right Section: Framed Carousel with Glow */}
+          <div className="flex flex-col items-center justify-center w-full z-10">
+            <div className="relative flex items-center justify-center w-full h-80">
+              {/* Card styling for frame, with shadow and rounded corners */}
+              <Card className="w-full h-full bg-[#191E2C] shadow-2xl rounded-3xl overflow-hidden flex items-center justify-center relative z-20">
+                <img
+                  src={carouselImages[current]}
+                  alt={`Partnership slide ${current + 1}`}
+                  className="object-cover w-full h-full transition-all duration-500"
+                  style={{ borderRadius: "1.5rem" }}
+                />
+              </Card>
+              {/* Navigation Arrows (styled, dark transparency) */}
+              <button
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#23263b] bg-opacity-60 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-[#31375e] transition z-30"
+                onClick={() => setCurrent((c) => (c - 1 + carouselImages.length) % carouselImages.length)}
+                aria-label="Previous image"
+              >
+                &#8592;
+              </button>
+              <button
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#23263b] bg-opacity-60 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-[#31375e] transition z-30"
+                onClick={() => setCurrent((c) => (c + 1) % carouselImages.length)}
+                aria-label="Next image"
+              >
+                &#8594;
+              </button>
+            </div>
+            {/* Dots indicating carousel position */}
+            <div className="flex gap-2 mt-8">
+              {carouselImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  aria-label={`Go to image ${idx + 1}`}
+                  onClick={() => setCurrent(idx)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    current === idx ? "bg-nst-blue" : "bg-muted opacity-30"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

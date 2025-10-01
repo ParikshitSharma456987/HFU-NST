@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import NSTLogo from "@/assets/nst-logo.svg";
+import NSTLogo from "@/assets/nst-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +23,7 @@ const Header = () => {
             <img 
               src={NSTLogo} 
               alt="Newton School of Technology" 
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 
@@ -42,8 +42,8 @@ const Header = () => {
 
           {/* Profiles CTA */}
           <div className="hidden md:block">
-            <Button className="btn-hero">
-              Contact Us
+            <Button className="btn-hero" asChild>
+              <a href="#contact-form">Contact Us</a>
             </Button>
           </div>
 
@@ -70,8 +70,8 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <Button className="btn-hero w-full mt-4">
-                Contact Us
+              <Button className="btn-hero w-full mt-4" asChild>
+                <a href="#contact-form" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
               </Button>
             </nav>
           </div>

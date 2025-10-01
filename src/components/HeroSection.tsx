@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Play, Users, Award, TrendingUp } from "lucide-react";
+import heroVideo from "@/assets/hero-background-video.mp4";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden pt-16 bg-slate-900">
+    <section id="home" className="min-h-screen relative overflow-hidden pt-16 bg-background">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         <video
@@ -12,9 +13,10 @@ const HeroSection = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover blur-sm"
+          style={{ filter: 'blur(8px)' }}
         >
-          <source src="https://d3dyfaf3iutrxo.cloudfront.net/general/upload/867cda10cd5e48b483afef0462d5beaa.mp4" type="video/mp4" />
+          <source src={heroVideo} type="video/mp4" />
         </video>
         {/* Enhanced Video Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
@@ -50,13 +52,16 @@ const HeroSection = () => {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Button size="lg" className="btn-hero text-lg px-10 py-6 h-auto shadow-2xl backdrop-blur-sm bg-gradient-to-r from-nst-blue to-nst-purple border-0 text-white hover:scale-105 transition-all duration-300 group">
-                Discover Future-Ready Talent
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="btn-hero text-lg px-10 py-6 h-auto shadow-2xl backdrop-blur-sm bg-gradient-to-r from-nst-blue to-nst-purple border-0 text-white hover:scale-105 transition-all duration-300 group" asChild>
+                <a href="#contact-form">
+                  Discover Future-Ready Talent
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
-              <Button variant="outline" size="lg" className="border-white/50 text-white hover:bg-white/10 text-lg px-10 py-6 h-auto backdrop-blur-sm shadow-2xl group">
-                {/* <Play className="w-5 h-5 mr-2" /> */}
-                View Our Curriculum
+              <Button variant="outline" size="lg" className="border-white/50 text-white hover:bg-white/10 text-lg px-10 py-6 h-auto backdrop-blur-sm shadow-2xl group" asChild>
+                <a href="#curriculum">
+                  View Our Curriculum
+                </a>
               </Button>
             </div>
             

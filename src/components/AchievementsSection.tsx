@@ -108,7 +108,7 @@ const AchievementsSection = () => {
   };
 
   return (
-    <section id="achievements" className="py-20 bg-slate-900 relative overflow-hidden">
+    <section id="achievements" className="py-20 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-10 left-1/4 w-80 h-80 bg-nst-purple/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-nst-orange/5 rounded-full blur-3xl"></div>

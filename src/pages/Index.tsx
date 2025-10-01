@@ -1,31 +1,42 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import HiringPartnersSection from "@/components/HiringPartnersSection";
-import SkillsSection from "@/components/SkillsSection";
-import SkillsBrochureSection from "@/components/SkillsBrochureSection";
-import PartnershipSection from "@/components/PartnershipSection";
 import StudentAchievementsSection from "@/components/StudentAchievementsSection";
 import WhyNewtonsSection from "@/components/WhyNewtonsSection";
+import SkillsBrochureSection from "@/components/SkillsBrochureSection";
 import NSTsPillarsSection from "@/components/NSTsPillarsSection";
+import PartnershipSection from "@/components/PartnershipSection";
 import InstructorProfileSection from "@/components/InstructorProfileSection";
+import SkillsSection from "@/components/SkillsSection";
 import HiringStepsSection from "@/components/HiringStepsSection";
-import Footer from "@/components/Footer";
+import SimpleFooter from "@/components/SimpleFooter";
+import SectionBreaker from "@/components/SectionBreaker";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      <SectionBreaker />
       <HiringPartnersSection />
-      <SkillsSection />
-      <SkillsBrochureSection />
-      <PartnershipSection />
+      <SectionBreaker />
       <StudentAchievementsSection />
+      <SectionBreaker />
       <WhyNewtonsSection />
+      <SectionBreaker />
+      <SkillsBrochureSection />
+      <SectionBreaker />
       <NSTsPillarsSection />
+      <SectionBreaker />
+      <PartnershipSection />
+      <SectionBreaker />
       <InstructorProfileSection />
+      <SectionBreaker />
+      <SkillsSection />
+      <SectionBreaker />
       <HiringStepsSection />
-      <Footer />
+      <SectionBreaker />
+      <SimpleFooter />
     </div>
   );
 };

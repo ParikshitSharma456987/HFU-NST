@@ -35,7 +35,7 @@ const USPSection = () => {
   ];
 
   return (
-    <section id="usp" className="py-20 bg-slate-900 relative overflow-hidden">
+    <section id="usp" className="py-20 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-1/3 left-0 w-72 h-72 bg-nst-blue/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 right-0 w-80 h-80 bg-nst-purple/5 rounded-full blur-3xl"></div>
